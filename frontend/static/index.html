@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeForge AI — Browser IDE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cf-bg font-mono text-slate-200 h-screen flex flex-col overflow-hidden">
+
+  <!-- STATUS BAR -->
+  <div class="cf-statusbar flex items-center justify-between px-4 py-1 text-xs">
+    <div class="flex items-center gap-3">
+      <span class="font-semibold text-white"><i class="fas fa-fire mr-1"></i>CodeForge AI</span>
+      <span id="gitBranch" class="text-blue-300"><i class="fas fa-code-branch mr-1"></i>main</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span id="languageMode" class="hover:bg-white/10 px-2 py-0.5 rounded cursor-pointer">Python</span>
+      <span id="cursorPos" class="text-slate-400">Ln 1, Col 1</span>
+      <span id="backendStatus" class="text-red-400">● offline</span>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div id="heroBanner" class="flex items-center gap-4 px-4 py-2 border-b border-white/5 text-xs" style="background:linear-gradient(90deg,rgba(0,122,204,0.08),rgba(78,201,176,0.06))">
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <i class="fas fa-fire" style="color:#007acc"></i>
+      <span class="font-semibold" style="color:#cccccc">CodeForge AI</span>
+      <span class="px-1.5 py-0.5 rounded text-xs" style="background:rgba(0,122,204,0.15);color:#4ec9b0">Browser IDE</span>
+    </div>
+    <span style="color:#555">|</span>
+    <span style="color:#858585">A full AI-powered IDE in your browser — Monaco editor, file tree, streaming AI assistant, and interactive terminal. Open files, write code, run it instantly, and get AI explanations, completions, or bug fixes without leaving the tab.</span>
+    <div class="flex gap-2 flex-shrink-0 ml-auto">
+      <span class="px-2 py-0.5 rounded" style="background:rgba(0,122,204,0.1);color:#9cdcfe">⚡ Monaco Editor</span>
+      <span class="px-2 py-0.5 rounded" style="background:rgba(78,201,176,0.08);color:#4ec9b0">🤖 Streaming AI</span>
+      <span class="px-2 py-0.5 rounded" style="background:rgba(255,255,255,0.04);color:#555">💻 Live Terminal</span>
+    </div>
+    <button onclick="document.getElementById('heroBanner').style.display='none'" class="flex-shrink-0 text-base leading-none hover:opacity-70 transition ml-2" style="color:#555" title="Dismiss">×</button>
+  </div>
+
+  <!-- TOP TOOLBAR -->
+  <div class="cf-toolbar flex items-center gap-2 px-3 py-2 border-b border-white/5">
+    <div class="flex items-center gap-1 mr-2">
+      <button onclick="saveFile()" title="Save (Ctrl+S)" class="cf-tool-btn px-3 py-1 rounded text-xs flex items-center gap-1">
+        <i class="fas fa-save text-blue-400"></i> Save
+      </button>
+      <button onclick="runCurrentFile()" title="Run" class="cf-tool-btn px-3 py-1 rounded text-xs flex items-center gap-1">
+        <i class="fas fa-play text-green-400"></i> Run
+      </button>
+    </div>
+    <div class="flex-1 text-xs text-slate-500 truncate" id="filePath">No file open</div>
+    <div class="flex items-center gap-1">
+      <button onclick="triggerAI('explain')" class="cf-tool-btn px-2 py-1 rounded text-xs" title="Explain selection">
+        <i class="fas fa-question text-yellow-400"></i>
+      </button>
+      <button onclick="triggerAI('debug')" class="cf-tool-btn px-2 py-1 rounded text-xs" title="Debug">
+        <i class="fas fa-bug text-red-400"></i>
+      </button>
+      <button onclick="toggleAI()" class="cf-tool-btn px-2 py-1 rounded text-xs" title="AI Assistant">
+        <i class="fas fa-robot text-purple-400"></i> AI
+      </button>
+      <button onclick="toggleTheme()" class="cf-tool-btn px-2 py-1 rounded text-xs"><i class="fas fa-circle-half-stroke"></i></button>
+    </div>
+  </div>
+
+  <!-- EDITOR TABS -->
+  <div id="editorTabs" class="cf-tabs flex items-center gap-0 overflow-x-auto text-xs border-b border-white/5">
+    <div class="text-slate-600 px-4 py-2 italic">No files open</div>
+  </div>
+
+  <!-- MAIN BODY: File tree | Editor | AI Panel -->
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- ACTIVITY BAR (far left) -->
+    <div class="cf-activity w-10 flex flex-col items-center py-2 gap-3 border-r border-white/5">
+      <button onclick="toggleFileTree()" title="Explorer" class="cf-activity-btn active p-2 rounded text-xs" id="actExplorer">
+        <i class="fas fa-folder-tree"></i>
+      </button>
+      <button onclick="toggleSearch()" title="Search" class="cf-activity-btn p-2 rounded text-xs" id="actSearch">
+        <i class="fas fa-search"></i>
+      </button>
+      <button onclick="toggleAI()" title="AI Assistant" class="cf-activity-btn p-2 rounded text-xs" id="actAI">
+        <i class="fas fa-robot"></i>
+      </button>
+      <div class="flex-1"></div>
+      <button onclick="toggleTerminal()" title="Terminal" class="cf-activity-btn p-2 rounded text-xs">
+        <i class="fas fa-terminal"></i>
+      </button>
+    </div>
+
+    <!-- FILE TREE / SEARCH SIDEBAR -->
+    <div id="fileSidebar" class="cf-sidebar w-52 flex flex-col border-r border-white/5 overflow-hidden">
+      <!-- Explorer panel -->
+      <div id="explorerPanel" class="flex flex-col flex-1 overflow-hidden">
+        <div class="px-3 py-2 text-xs text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-white/5">
+          EXPLORER
+          <div class="flex gap-1">
+            <button onclick="newFile()" title="New file" class="hover:text-white"><i class="fas fa-plus text-xs"></i></button>
+            <button onclick="loadFileTree()" title="Refresh" class="hover:text-white"><i class="fas fa-rotate-right text-xs"></i></button>
+          </div>
+        </div>
+        <div id="fileTree" class="flex-1 overflow-y-auto py-1 text-xs"></div>
+      </div>
+      <!-- Search panel (hidden by default) -->
+      <div id="searchPanel" class="hidden flex-col flex-1 overflow-hidden">
+        <div class="px-3 py-2 text-xs text-slate-500 uppercase tracking-wider border-b border-white/5">SEARCH</div>
+        <div class="p-2">
+          <input id="searchInput" type="text" placeholder="Search files…" class="cf-input w-full rounded px-2 py-1.5 text-xs"
+            oninput="searchProject(this.value)" />
+        </div>
+        <div id="searchResults" class="flex-1 overflow-y-auto py-1 text-xs"></div>
+      </div>
+    </div>
+
+    <!-- EDITOR AREA -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <div id="editorContainer" class="flex-1 overflow-hidden"></div>
+
+      <!-- TERMINAL PANEL -->
+      <div id="terminalPanel" class="cf-terminal border-t border-white/5 flex flex-col" style="height:200px">
+        <div class="flex items-center gap-3 px-3 py-1 border-b border-white/5 text-xs">
+          <div class="flex gap-1" id="termTabs">
+            <button class="term-tab active px-3 py-1 rounded text-xs" id="term-tab-1" onclick="switchTerm(1)">Terminal 1</button>
+          </div>
+          <button onclick="addTerminal()" class="text-slate-500 hover:text-white ml-1"><i class="fas fa-plus text-xs"></i></button>
+          <div class="flex-1"></div>
+          <button onclick="toggleTerminal()" class="text-slate-500 hover:text-white"><i class="fas fa-times text-xs"></i></button>
+        </div>
+        <div id="terminalOutput" class="flex-1 overflow-y-auto px-3 py-2 text-xs terminal-text leading-5"></div>
+        <div class="flex items-center gap-2 px-3 py-1.5 border-t border-white/5">
+          <span class="text-green-400">$</span>
+          <input id="termInput" type="text" class="flex-1 bg-transparent focus:outline-none text-xs"
+            placeholder="Enter command or ? for NL→command…"
+            onkeydown="handleTerminalKey(event)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- AI ASSISTANT PANEL -->
+    <div id="aiPanel" class="cf-ai-panel w-72 flex flex-col border-l border-white/5 hidden">
+      <div class="px-3 py-2 border-b border-white/5 text-xs text-slate-500 uppercase tracking-wider flex items-center justify-between">
+        AI ASSISTANT
+        <button onclick="toggleAI()" class="hover:text-white"><i class="fas fa-times text-xs"></i></button>
+      </div>
+
+      <div class="p-2 border-b border-white/5">
+        <div class="flex flex-wrap gap-1">
+          <button onclick="triggerAI('explain')" class="ai-quick-btn text-xs px-2 py-1 rounded">Explain</button>
+          <button onclick="triggerAI('debug')" class="ai-quick-btn text-xs px-2 py-1 rounded">Debug</button>
+          <button onclick="triggerAI('generate')" class="ai-quick-btn text-xs px-2 py-1 rounded">Generate</button>
+          <button onclick="triggerAI('complete')" class="ai-quick-btn text-xs px-2 py-1 rounded">Complete</button>
+        </div>
+      </div>
+
+      <div id="aiMessages" class="flex-1 overflow-y-auto p-3 space-y-3 text-xs"></div>
+
+      <div class="p-2 border-t border-white/5">
+        <div class="flex gap-2">
+          <input id="aiInput" type="text" placeholder="Chat with AI…" class="cf-input flex-1 rounded px-2 py-2 text-xs"
+            onkeydown="if(event.key==='Enter')sendAIChat()" />
+          <button onclick="sendAIChat()" class="ai-send-btn px-2 py-2 rounded text-xs">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New file modal -->
+  <div id="newFileModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center">
+    <div class="cf-modal rounded-xl p-5 w-80">
+      <div class="text-sm font-semibold mb-3">New File</div>
+      <input id="newFileName" type="text" placeholder="filename.py" class="cf-input w-full rounded px-3 py-2 text-sm mb-3" />
+      <div class="flex gap-2 justify-end">
+        <button onclick="closeNewFileModal()" class="cf-tool-btn px-3 py-1.5 rounded text-xs">Cancel</button>
+        <button onclick="createFile()" class="ai-send-btn px-3 py-1.5 rounded text-xs">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monaco loader -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

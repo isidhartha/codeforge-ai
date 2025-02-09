@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    color: #cccccc;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+  }
+}
+
+@layer components {
+  .ide-btn {
+    @apply px-3 py-1.5 text-sm rounded transition-colors duration-150
+           bg-editor-toolbar hover:bg-editor-active text-editor-text
+           border border-editor-border cursor-pointer select-none;
+  }
+
+  .ide-btn-primary {
+    @apply px-3 py-1.5 text-sm rounded transition-colors duration-150
+           bg-editor-accent hover:bg-editor-accentHover text-white
+           cursor-pointer select-none;
+  }
+
+  .ide-panel {
+    @apply bg-editor-sidebar border-editor-border;
+  }
+
+  .code-block {
+    @apply bg-black/40 rounded text-sm font-mono overflow-x-auto;
+  }
+
+  .chat-message {
+    @apply rounded-lg p-3 text-sm leading-relaxed;
+  }
+
+  .chat-message-user {
+    @apply bg-editor-accent/20 border border-editor-accent/30;
+  }
+
+  .chat-message-ai {
+    @apply bg-editor-active border border-editor-border;
+  }
+}
+
+/* Monaco editor overrides */
+.monaco-editor .suggest-widget {
+  border: 1px solid #007acc !important;
+}
+
+/* xterm overrides */
+.xterm-screen {
+  padding: 4px;
+}
+
+/* Smooth transitions */
+.panel-transition {
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+/* File tree item */
+.file-tree-item {
+  @apply flex items-center gap-1 px-2 py-0.5 text-sm cursor-pointer
+         hover:bg-editor-hover rounded transition-colors duration-100;
+}
+
+.file-tree-item.active {
+  @apply bg-editor-active text-white;
+}
+
+/* AI thinking animation */
+@keyframes thinking {
+  0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+  30% { opacity: 1; transform: scale(1.1); }
+}
+
+.ai-thinking span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: #007acc;
+  border-radius: 50%;
+  animation: thinking 1.4s infinite;
+}
+
+.ai-thinking span:nth-child(2) { animation-delay: 0.2s; }
+.ai-thinking span:nth-child(3) { animation-delay: 0.4s; }
