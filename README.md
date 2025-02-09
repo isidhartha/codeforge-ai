@@ -1,173 +1,127 @@
-# CodeForge AI — AI Browser IDE & Coding Environment
+# CodeForge AI
 
-A fully featured, browser-based IDE powered by AI — bringing the intelligence of modern AI coding assistants directly into a Monaco-editor environment accessible from any browser.
+The premise is simple: your IDE should be running everywhere, and it should understand what you're building.
 
----
-
-## Screenshot
-
-```
-+------------------------------------------------------------------+
-|  [CodeForge AI]  [New File]  [Open]  [Run]  [Debug]  [AI Chat]  |
-+----------------+-------------------------------+------------------+
-| File Explorer  |     Monaco Editor (center)    |  AI Assistant   |
-|                |                               |                 |
-| > src/         |  function greet(name: str)    | > Ask anything  |
-|   main.py      |      return f"Hello {name}"   |                 |
-|   utils.py     |                               | [Explain Code]  |
-| > tests/       |  // AI Suggestion:            | [Generate Code] |
-|   test_main.py |  // def greet_all(names):     | [Debug Error]   |
-|                |  //   return [greet(n) for..] |                 |
-+----------------+-------------------------------+-----------------+
-| Terminal                              AI: "Run: python main.py"  |
-| $ python main.py                                                  |
-| Hello World                                                       |
-+------------------------------------------------------------------+
-```
+CodeForge AI is a browser-based coding environment with an AI assistant built into the core — not bolted on as a chat sidebar. You get a Monaco editor (the same editor that powers VS Code), a real terminal, a file explorer, and an AI that has context about your entire project and can act on it. Run it once in Docker and you've got a full IDE accessible from any browser on your network.
 
 ---
 
-## Features
+## What it does
 
-- **Browser-Based Monaco IDE** — Full VS Code-like editing experience with syntax highlighting for 20+ languages, IntelliSense, and multi-tab support
-- **AI Coding Assistant** — Streaming AI chat sidebar powered by GPT-4o or Claude; context-aware with selected code injection
-- **Intelligent Autocomplete** — AI-powered completions triggered by Ctrl+Space, beyond standard LSP completions
-- **Repo Understanding** — Index any codebase and ask questions about it using semantic search
-- **Spec-to-Code Generation** — Describe what you need in plain English; get complete working files/functions
-- **AI Debugging** — Paste an error trace; get an explanation and suggested fix applied directly to your code
-- **AI Terminal Assistant** — Type natural language commands; get shell commands with explanations
-- **Embedded xterm.js Terminal** — Full interactive terminal with WebSocket streaming
-- **Project Indexing** — Semantic search across your entire project using embeddings
-- **code-server Integration** — Full VS Code in the browser via the official codercom/code-server Docker image on port 8080
+**Monaco editor** — Full VS Code-like editing experience in the browser. Syntax highlighting for 20+ languages, multi-tab support, and a file tree. If you've used VS Code, the muscle memory transfers immediately.
 
----
+**AI coding assistant** — A chat panel that's aware of the file you're editing and can see your selection. Ask it to explain a function, suggest a refactor, generate a test, or translate a piece of code to another language. Responses stream in real time.
 
-## Architecture
+**Code generation from specs** — Describe what you want in plain English. "Write a FastAPI endpoint that accepts a JSON body with a user ID and returns the user's recent orders from a PostgreSQL database." It produces working code you can drop into your project.
 
-```
-                        Browser
-         +-----------------------------------------+
-         |  React Frontend (port 3000)             |
-         |  Monaco Editor | AI Sidebar | Terminal  |
-         +-----------+-----------------------------+
-                     | HTTP / WebSocket
-         +-----------v-----------------------------+
-         |  FastAPI Backend (port 8000)            |
-         |  /api/v1/ai/*   /api/v1/files/*         |
-         |  /ws/ai-stream  /ws/terminal            |
-         +-----------+-----------------------------+
-                     |
-         +-----------v------+   +----------------+
-         |  Redis (cache /  |   |  code-server   |
-         |  session store)  |   |  port 8080     |
-         +------------------+   +----------------+
-```
+**AI debugging** — Paste in an error trace and the code that produced it. It explains what went wrong, why, and shows you the fix. It can also run your code in the terminal and work from the actual output.
+
+**Smart autocomplete** — AI-powered completions that go beyond standard IntelliSense. It considers what you're building, not just what symbols are in scope.
+
+**Interactive terminal** — Real xterm.js terminal running in the browser over WebSocket. Type commands, see output. You can also type in plain English and it'll suggest the shell command you meant.
+
+**Project semantic search** — Index your codebase and ask questions about it. "Where is the database connection pool initialized?" or "Which files handle authentication?" It understands structure, not just text.
+
+**code-server** — The full VS Code experience in the browser is also available at port 8080, powered by the official codercom/code-server image. If you need something the custom IDE doesn't have yet, it's right there.
 
 ---
 
-## Quick Start
+## How to run it
 
-### Prerequisites
+**Prerequisites**: Docker and Docker Compose. An OpenAI or Anthropic API key.
 
-- Docker and Docker Compose
-- An OpenAI API key (or Anthropic API key)
-
-### 1. Clone & Configure
+**1. Clone and configure**
 
 ```bash
-git clone https://github.com/your-org/codeforge-ai.git
+git clone https://github.com/isidhartha/codeforge-ai.git
 cd codeforge-ai
 cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY
 ```
 
-### 2. Launch
+Open `.env` and add your API key:
+
+```
+OPENAI_API_KEY=sk-your-key-here
+# or
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+
+**2. Start everything**
 
 ```bash
 docker-compose up --build
 ```
 
-### 3. Open
+**3. Open the IDE**
 
-| Service | URL | Description |
-|---------|-----|-------------|
-| CodeForge AI IDE | http://localhost:3000 | Custom React + Monaco IDE |
-| code-server (VS Code) | http://localhost:8080 | Full VS Code in browser |
-| Backend API | http://localhost:8000 | FastAPI + docs at /docs |
-| Redis | localhost:6379 | Cache & sessions |
-
----
-
-## API Reference
-
-Full API documentation is available at `http://localhost:8000/docs` (Swagger UI) after starting the backend.
-
-Key endpoints:
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/health` | Health check |
-| POST | `/api/v1/ai/complete` | Streaming code completion |
-| POST | `/api/v1/ai/explain` | Explain selected code |
-| POST | `/api/v1/ai/generate` | Generate code from spec |
-| POST | `/api/v1/ai/debug` | Debug error + fix |
-| POST | `/api/v1/ai/chat` | General coding chat (streaming) |
-| POST | `/api/v1/terminal/run` | Execute a shell command |
-| POST | `/api/v1/terminal/nl` | Natural language to command |
-| POST | `/api/v1/project/index` | Index a project directory |
-| POST | `/api/v1/project/search` | Semantic search in project |
-| GET | `/api/v1/files` | List files |
-| GET | `/api/v1/files/{path}` | Read file |
-| PUT | `/api/v1/files/{path}` | Write file |
-| WS | `/ws/ai-stream` | Streaming AI responses |
-| WS | `/ws/terminal` | Interactive terminal |
+| URL | What's there |
+|---|---|
+| http://localhost:3000 | CodeForge AI — the custom React + Monaco IDE |
+| http://localhost:8080 | code-server — full VS Code in the browser |
+| http://localhost:8000/docs | Backend API docs (Swagger UI) |
 
 ---
 
-## Development
-
-### Backend
+## Without Docker
 
 ```bash
+# Backend
 cd backend
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate    # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-```
 
-### Frontend
-
-```bash
+# Frontend (separate terminal)
 cd frontend
 npm install
-npm run dev
+npm run dev                  # http://localhost:5173
+```
+
+---
+
+## API
+
+Full Swagger UI at `http://localhost:8000/docs`.
+
+```
+POST /api/v1/ai/complete      — AI code completion (streaming)
+POST /api/v1/ai/explain       — Explain a piece of code
+POST /api/v1/ai/generate      — Generate code from a description
+POST /api/v1/ai/debug         — Debug an error and suggest a fix
+POST /api/v1/ai/chat          — General coding chat
+POST /api/v1/terminal/run     — Execute a shell command
+POST /api/v1/terminal/nl      — Natural language to shell command
+POST /api/v1/project/index    — Index a project directory for search
+POST /api/v1/project/search   — Semantic search across indexed project
+GET  /api/v1/files            — List files
+GET  /api/v1/files/{path}     — Read a file
+PUT  /api/v1/files/{path}     — Write a file
+WS   /ws/ai-stream            — Streaming AI responses
+WS   /ws/terminal             — Interactive terminal session
 ```
 
 ---
 
 ## Configuration
 
-All configuration is via environment variables. See `.env.example` for the full list.
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `OPENAI_API_KEY` | — | OpenAI API key |
-| `ANTHROPIC_API_KEY` | — | Anthropic API key (alternative) |
+| Variable | Default | What it does |
+|---|---|---|
+| `OPENAI_API_KEY` | — | OpenAI for AI features |
+| `ANTHROPIC_API_KEY` | — | Anthropic alternative |
 | `AI_MODEL` | `gpt-4o` | Model to use |
-| `REDIS_URL` | `redis://redis:6379` | Redis connection |
-| `WORKSPACE_DIR` | `/workspace` | Root directory for file ops |
-| `TERMINAL_ALLOWED_COMMANDS` | `ls,pwd,...` | Allowlisted shell commands |
+| `REDIS_URL` | `redis://redis:6379` | Session and cache storage |
+| `WORKSPACE_DIR` | `/workspace` | Root for file operations |
 | `MAX_TOKENS` | `4096` | Max tokens per AI response |
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md). The agent and tool system is modular — adding a new AI capability usually means adding one endpoint and one handler function.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT.
