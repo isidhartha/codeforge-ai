@@ -33,6 +33,7 @@ services:
       - MAX_TOKENS=${MAX_TOKENS:-4096}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000,http://localhost:8080}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
     volumes:
       - workspace_data:/workspace
       - ./backend:/app
@@ -45,6 +46,15 @@ services:
       timeout: 10s
       retries: 3
     restart: unless-stopped
+
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: codeforge-ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   # After starting, pull a model: docker exec codeforge-ollama ollama pull llama3.2
 
   frontend:
     image: node:20-alpine
@@ -81,3 +91,4 @@ volumes:
   redis_data:
   workspace_data:
   code_server_config:
+  # ollama_data:  # uncomment if using the ollama service above

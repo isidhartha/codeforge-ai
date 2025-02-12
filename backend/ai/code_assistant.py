@@ -1,9 +1,12 @@
 """AI code completion and streaming chat assistant."""
+import os
 from typing import AsyncIterator, Optional
-from openai import AsyncOpenAI
+from backend.llm_service import complete as llm_complete, chat as llm_chat
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import ChatMessage, CompletionRequest
+
+_LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
 
 logger = get_logger(__name__)
 settings = get_settings()
@@ -25,17 +28,25 @@ When showing code:
 """
 
 
-def _build_client() -> AsyncOpenAI:
+def _build_openai_client():
+    from openai import AsyncOpenAI
     return AsyncOpenAI(api_key=settings.openai_api_key)
 
 
 async def stream_completion(req: CompletionRequest) -> AsyncIterator[str]:
     """Stream a code completion for the given context."""
-    client = _build_client()
     prompt = _build_completion_prompt(req)
-
     logger.info("streaming_completion", language=req.language, tokens=settings.max_tokens)
 
+    if _LLM_PROVIDER == "ollama":
+        import asyncio
+        text = await asyncio.get_event_loop().run_in_executor(
+            None, lambda: llm_complete(prompt, system=COMPLETION_SYSTEM)
+        )
+        yield text
+        return
+
+    client = _build_openai_client()
     stream = await client.chat.completions.create(
         model=settings.ai_model,
         messages=[
@@ -59,7 +70,6 @@ async def stream_chat(
     language: Optional[str] = None,
 ) -> AsyncIterator[str]:
     """Stream a general coding chat response."""
-    client = _build_client()
     openai_messages = [{"role": "system", "content": CHAT_SYSTEM}]
 
     if selected_code:
@@ -74,6 +84,15 @@ async def stream_chat(
 
     logger.info("streaming_chat", message_count=len(messages))
 
+    if _LLM_PROVIDER == "ollama":
+        import asyncio
+        text = await asyncio.get_event_loop().run_in_executor(
+            None, lambda: llm_chat(openai_messages)
+        )
+        yield text
+        return
+
+    client = _build_openai_client()
     stream = await client.chat.completions.create(
         model=settings.ai_model,
         messages=openai_messages,

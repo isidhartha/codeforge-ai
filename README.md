@@ -116,6 +116,43 @@ WS   /ws/terminal             — Interactive terminal session
 
 ---
 
+## Free local LLM option (no API key needed)
+
+CodeForge AI can run its AI features entirely on your machine using [Ollama](https://ollama.com) — no OpenAI account or API key required.
+
+**1. Install Ollama**
+
+Download from https://ollama.com and install it. Then pull a model:
+
+```bash
+ollama pull llama3.2
+```
+
+**2. Set the provider in `.env`**
+
+```
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2
+```
+
+Leave `OPENAI_API_KEY` blank. All AI features (completion, explanation, generation, debugging, chat) will be routed to your local Ollama instance.
+
+**3. Start Ollama and then the stack**
+
+```bash
+ollama serve          # keep this running in one terminal
+docker-compose up --build
+```
+
+If you're running Ollama on your host machine and the backend inside Docker, the compose file already sets `OLLAMA_BASE_URL=http://host.docker.internal:11434` so the container can reach it. On Linux, you may need to use your host's LAN IP instead of `host.docker.internal`.
+
+Note: Ollama returns full responses rather than streaming tokens, so AI responses will appear all at once instead of word-by-word. Streaming is preserved when using OpenAI.
+
+**Switching back to OpenAI** is just changing `LLM_PROVIDER=openai` in `.env` and restarting the backend.
+
+---
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The agent and tool system is modular — adding a new AI capability usually means adding one endpoint and one handler function.

@@ -1,9 +1,12 @@
 """AI debugging assistant — explain errors and suggest fixes."""
+import os
 from typing import AsyncIterator
-from openai import AsyncOpenAI
+from backend.llm_service import complete as llm_complete
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import DebugRequest
+
+_LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
 
 logger = get_logger(__name__)
 settings = get_settings()
@@ -20,11 +23,19 @@ Be precise and actionable. Format output in markdown.
 
 async def stream_debug(req: DebugRequest) -> AsyncIterator[str]:
     """Stream a debugging analysis and suggested fix."""
-    client = AsyncOpenAI(api_key=settings.openai_api_key)
     prompt = _build_debug_prompt(req)
-
     logger.info("debugging", language=req.language, error_len=len(req.error))
 
+    if _LLM_PROVIDER == "ollama":
+        import asyncio
+        text = await asyncio.get_event_loop().run_in_executor(
+            None, lambda: llm_complete(prompt, system=DEBUG_SYSTEM)
+        )
+        yield text
+        return
+
+    from openai import AsyncOpenAI
+    client = AsyncOpenAI(api_key=settings.openai_api_key)
     stream = await client.chat.completions.create(
         model=settings.ai_model,
         messages=[
