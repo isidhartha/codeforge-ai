@@ -10,3 +10,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-20] chore: standardize naming
 [2026-02-20] fix: broken unit test
 [2026-02-20] updated setup docs
+[2026-02-21] auth token refresh
