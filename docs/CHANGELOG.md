@@ -12,3 +12,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-20] updated setup docs
 [2026-02-21] auth token refresh
 [2026-02-21] consistent naming
+[2026-02-21] consolidate duplicate logic
