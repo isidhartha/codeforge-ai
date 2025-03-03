@@ -14,3 +14,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-21] consistent naming
 [2026-02-21] consolidate duplicate logic
 [2026-02-21] readme cleanup
+[2026-02-22] fix: environment variable parsing
