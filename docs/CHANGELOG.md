@@ -17,3 +17,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-22] fix: environment variable parsing
 [2026-02-22] test: fix flaky test
 [2026-02-23] quick improvement
+[2026-02-23] removed dead code
