@@ -29,3 +29,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-24] output sanitization
 [2026-02-24] fix: log level override not working
 [2026-02-25] self review fixes
+[2026-02-25] query optimization
