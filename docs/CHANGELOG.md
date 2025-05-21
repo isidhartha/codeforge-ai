@@ -51,3 +51,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-02] faster startup
 [2026-03-02] split pane layout bug
 [2026-03-02] added missing docs
+[2026-03-02] refactor: extract constants
