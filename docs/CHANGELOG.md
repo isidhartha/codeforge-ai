@@ -56,3 +56,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-04] clearer contributing guide
 [2026-03-04] improve readability
 [2026-03-04] hotfix: bad default config
+[2026-03-04] early return pattern
