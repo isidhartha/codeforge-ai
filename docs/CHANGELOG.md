@@ -63,3 +63,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-05] syntax highlighting extension
 [2026-03-05] fixed edge case in prod
 [2026-03-05] packages updated
+[2026-03-05] removed magic numbers
