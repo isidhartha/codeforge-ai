@@ -69,3 +69,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-06] added some tests
 [2026-03-06] fixed error propagation
 [2026-03-07] fixed that null crash
+[2026-03-07] minor tweaks
