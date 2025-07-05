@@ -75,3 +75,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-08] trying a different approach
 [2026-03-08] better separation of concerns
 [2026-03-08] test: more edge cases
+[2026-03-08] pagination cursor fix
