@@ -77,3 +77,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-08] test: more edge cases
 [2026-03-08] pagination cursor fix
 [2026-03-09] refactor: simplify logic
+[2026-03-09] terminal websocket reconnect
