@@ -82,3 +82,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-11] fixed outdated instructions
 [2026-03-11] ai explanation prompt
 [2026-03-11] reorganized files
+[2026-03-11] first pass
