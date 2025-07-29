@@ -94,3 +94,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-14] docs: api reference update
 [2026-03-14] refactor: cleaner variable names
 [2026-03-15] connection pool sizing
+[2026-03-15] file watcher events
