@@ -106,3 +106,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-20] chore: update dependencies
 [2026-03-20] resource limits
 [2026-03-20] fix: missing return statement
+[2026-03-20] startup time improvement
