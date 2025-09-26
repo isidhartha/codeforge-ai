@@ -132,3 +132,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-25] docs: docker setup clarification
 [2026-03-25] mocked external dependencies
 [2026-03-27] project indexing speed
+[2026-03-27] dependency cleanup
