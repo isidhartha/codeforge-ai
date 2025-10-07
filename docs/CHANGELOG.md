@@ -138,3 +138,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-29] code review fixes
 [2026-03-29] code generation prompt update
 [2026-03-29] filter improvement
+[2026-03-29] reduced unnecessary work
