@@ -142,3 +142,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-29] fix: wrong variable used
 [2026-03-29] added code examples to docs
 [2026-03-30] fix: config values not loading
+[2026-03-30] minimap toggle
