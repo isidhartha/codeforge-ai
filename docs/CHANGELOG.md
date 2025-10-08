@@ -144,3 +144,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-30] fix: config values not loading
 [2026-03-30] minimap toggle
 [2026-03-30] perf: lazy initialization
+[2026-03-30] api docs update
