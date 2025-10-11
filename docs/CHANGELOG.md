@@ -146,3 +146,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-30] perf: lazy initialization
 [2026-03-30] api docs update
 [2026-03-30] timeout tuning
+[2026-03-30] named the constants
