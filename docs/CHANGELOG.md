@@ -153,3 +153,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-31] style: quote consistency
 [2026-03-31] reverted bad change
 [2026-03-31] test: add basic unit tests
+[2026-03-31] breadcrumb navigation fix
