@@ -155,3 +155,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-31] test: add basic unit tests
 [2026-03-31] breadcrumb navigation fix
 [2026-04-01] db index added
+[2026-04-01] finally fixed that edge case
