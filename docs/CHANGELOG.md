@@ -159,3 +159,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-01] docs: better examples
 [2026-04-01] cleaned up config
 [2026-04-01] better variable names
+[2026-04-01] fixed race condition in handler
