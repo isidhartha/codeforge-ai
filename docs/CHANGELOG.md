@@ -174,3 +174,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-05] back to simpler approach
 [2026-04-05] improved test reliability
 [2026-04-05] small improvement
+[2026-04-06] merge fixes
