@@ -179,3 +179,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-06] address review feedback
 [2026-04-06] fix: edge case with empty input
 [2026-04-07] ai chat context window
+[2026-04-07] tab management fix
