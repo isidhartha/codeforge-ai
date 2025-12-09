@@ -188,3 +188,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-10] stricter validation
 [2026-04-10] minor refactor
 [2026-04-10] updated changelog
+[2026-04-10] editor scroll synchronization
