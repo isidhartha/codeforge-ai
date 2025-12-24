@@ -202,3 +202,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-12] git diff view
 [2026-04-12] fixed failing test
 [2026-04-13] style: consistent indentation
+[2026-04-13] async fix
