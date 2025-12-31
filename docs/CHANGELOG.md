@@ -205,3 +205,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-13] async fix
 [2026-04-13] fix: bad import path
 [2026-04-13] whitespace fix
+[2026-04-13] fix: typo in error message
