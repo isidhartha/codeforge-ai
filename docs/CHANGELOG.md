@@ -218,3 +218,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-16] tweaks
 [2026-04-16] alternative approach
 [2026-04-16] expanded architecture notes
+[2026-04-17] lsp integration
