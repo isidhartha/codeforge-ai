@@ -223,3 +223,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-18] fix: connection not closing properly
 [2026-04-18] cleaned up imports
 [2026-04-18] fix: memory not released on shutdown
+[2026-04-19] general cleanup
