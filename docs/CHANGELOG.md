@@ -237,3 +237,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-22] health check endpoint
 [2026-04-22] it works now
 [2026-04-22] cleaned up error handling
+[2026-04-22] version bump
