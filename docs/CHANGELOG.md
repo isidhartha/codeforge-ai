@@ -235,3 +235,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-20] fixed pagination edge case
 [2026-04-20] graceful degradation
 [2026-04-22] health check endpoint
+[2026-04-22] it works now
