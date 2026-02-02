@@ -240,3 +240,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-22] version bump
 [2026-04-23] fix: encoding issue in response
 [2026-04-23] removed unused variables
+[2026-04-23] chore: standardize naming
