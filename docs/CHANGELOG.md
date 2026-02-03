@@ -244,3 +244,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-24] fix: broken unit test
 [2026-04-24] updated setup docs
 [2026-04-24] auth token refresh
+[2026-04-24] consistent naming
