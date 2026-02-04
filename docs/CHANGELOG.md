@@ -248,3 +248,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-25] consolidate duplicate logic
 [2026-04-25] readme cleanup
 [2026-04-25] fix: environment variable parsing
+[2026-04-25] test: fix flaky test
