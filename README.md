@@ -1,5 +1,7 @@
 # CodeForge AI
 
+[![Discussions](https://img.shields.io/github/discussions/isidhartha/codeforge-ai)](https://github.com/isidhartha/codeforge-ai/discussions)
+
 The premise is simple: your IDE should be running everywhere, and it should understand what you're building.
 
 CodeForge AI is a browser-based coding environment with an AI assistant built into the core — not bolted on as a chat sidebar. You get a Monaco editor (the same editor that powers VS Code), a real terminal, a file explorer, and an AI that has context about your entire project and can act on it. Run it once in Docker and you've got a full IDE accessible from any browser on your network.
@@ -43,6 +45,8 @@ Open `.env` and add your API key:
 ```
 OPENAI_API_KEY=sk-your-key-here
 # or
+
+[![Discussions](https://img.shields.io/github/discussions/isidhartha/codeforge-ai)](https://github.com/isidhartha/codeforge-ai/discussions)
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
@@ -66,6 +70,8 @@ docker-compose up --build
 
 ```bash
 # Backend
+
+[![Discussions](https://img.shields.io/github/discussions/isidhartha/codeforge-ai)](https://github.com/isidhartha/codeforge-ai/discussions)
 cd backend
 python -m venv .venv
 source .venv/bin/activate    # Windows: .venv\Scripts\activate
@@ -73,6 +79,8 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 
 # Frontend (separate terminal)
+
+[![Discussions](https://img.shields.io/github/discussions/isidhartha/codeforge-ai)](https://github.com/isidhartha/codeforge-ai/discussions)
 cd frontend
 npm install
 npm run dev                  # http://localhost:5173
