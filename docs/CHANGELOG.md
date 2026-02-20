@@ -251,3 +251,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-25] test: fix flaky test
 [2026-04-25] quick improvement
 [2026-04-25] removed dead code
+[2026-04-25] chore: update license year
