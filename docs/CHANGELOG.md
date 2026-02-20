@@ -255,3 +255,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-27] docs: update changelog
 [2026-04-27] moved to config
 [2026-04-27] fixed typo in comment
+[2026-04-29] docs: installation steps update
