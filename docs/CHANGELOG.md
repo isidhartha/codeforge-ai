@@ -8,3 +8,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-20] fix: encoding issue in response
 [2026-02-20] removed unused variables
 [2026-02-20] chore: standardize naming
+[2026-02-20] fix: broken unit test
