@@ -23,3 +23,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-23] moved to config
 [2026-02-24] fixed typo in comment
 [2026-02-24] docs: installation steps update
+[2026-02-24] more test coverage
