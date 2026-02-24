@@ -27,3 +27,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-24] formatter config
 [2026-02-24] small fix
 [2026-02-24] output sanitization
+[2026-02-24] fix: log level override not working
