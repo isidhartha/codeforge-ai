@@ -25,3 +25,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-24] docs: installation steps update
 [2026-02-24] more test coverage
 [2026-02-24] formatter config
+[2026-02-24] small fix
