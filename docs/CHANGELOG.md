@@ -33,3 +33,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-25] file tree refresh on save
 [2026-02-25] autocomplete debounce fix
 [2026-02-25] better getting started guide
+[2026-02-25] retry logic improved
