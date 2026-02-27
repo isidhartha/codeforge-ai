@@ -38,3 +38,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-27] monaco editor keybinding fix
 [2026-02-27] input bounds check
 [2026-02-27] chore: rename for clarity
+[2026-02-27] fix: wrong status code
