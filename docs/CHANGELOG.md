@@ -41,3 +41,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-27] fix: wrong status code
 [2026-02-27] xterm resize handling
 [2026-02-27] fixed response format issue
+[2026-02-28] cleaned up after merge
