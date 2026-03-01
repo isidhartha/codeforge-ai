@@ -47,3 +47,4 @@ Running log of changes. Most recent at the bottom.
 [2026-02-28] docs: add missing param docs
 [2026-02-28] chore: bump package versions
 [2026-03-01] better memory usage
+[2026-03-01] signal handling
