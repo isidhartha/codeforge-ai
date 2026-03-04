@@ -265,3 +265,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-01] query optimization
 [2026-05-01] file tree refresh on save
 [2026-05-02] autocomplete debounce fix
+[2026-05-02] better getting started guide
