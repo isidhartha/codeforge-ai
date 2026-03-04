@@ -53,3 +53,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-02] added missing docs
 [2026-03-02] refactor: extract constants
 [2026-03-04] docs: note about environment variables
+[2026-03-04] clearer contributing guide
