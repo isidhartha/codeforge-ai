@@ -58,3 +58,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-04] hotfix: bad default config
 [2026-03-04] early return pattern
 [2026-03-04] this should do it
+[2026-03-04] formatting cleanup
