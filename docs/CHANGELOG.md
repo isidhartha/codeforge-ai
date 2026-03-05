@@ -60,3 +60,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-04] this should do it
 [2026-03-04] formatting cleanup
 [2026-03-05] cleanup and formatting
+[2026-03-05] syntax highlighting extension
