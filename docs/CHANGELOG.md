@@ -269,3 +269,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-02] retry logic improved
 [2026-05-02] working on it
 [2026-05-03] monaco editor keybinding fix
+[2026-05-03] input bounds check
