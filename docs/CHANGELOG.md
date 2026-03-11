@@ -78,3 +78,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-08] pagination cursor fix
 [2026-03-09] refactor: simplify logic
 [2026-03-09] terminal websocket reconnect
+[2026-03-11] fix: incorrect default value
