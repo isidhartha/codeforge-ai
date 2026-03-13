@@ -87,3 +87,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-13] refactor: split into smaller functions
 [2026-03-13] docs: fix typo in readme
 [2026-03-13] polish
+[2026-03-13] chore: remove debug logs
