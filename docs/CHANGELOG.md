@@ -273,3 +273,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-03] chore: rename for clarity
 [2026-05-03] fix: wrong status code
 [2026-05-03] xterm resize handling
+[2026-05-05] fixed response format issue
