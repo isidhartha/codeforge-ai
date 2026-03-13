@@ -85,3 +85,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-11] first pass
 [2026-03-11] regression test added
 [2026-03-13] refactor: split into smaller functions
+[2026-03-13] docs: fix typo in readme
