@@ -91,3 +91,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-13] header cleanup
 [2026-03-13] fix: race condition in handler
 [2026-03-14] docker build fix
+[2026-03-14] docs: api reference update
