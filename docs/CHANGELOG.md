@@ -98,3 +98,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-15] cache ttl adjustment
 [2026-03-15] null safety improvement
 [2026-03-16] test fixtures update
+[2026-03-16] got it working
