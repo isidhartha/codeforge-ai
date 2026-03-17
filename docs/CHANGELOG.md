@@ -280,3 +280,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-05] docs: add missing param docs
 [2026-05-05] chore: bump package versions
 [2026-05-05] better memory usage
+[2026-05-06] signal handling
