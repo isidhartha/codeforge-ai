@@ -103,3 +103,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-18] finishing up
 [2026-03-18] fixed missing null checks
 [2026-03-18] all tests green
+[2026-03-20] chore: update dependencies
