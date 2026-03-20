@@ -109,3 +109,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-20] startup time improvement
 [2026-03-20] progress
 [2026-03-20] hotfix: null dereference
+[2026-03-20] fix: timeout too short
