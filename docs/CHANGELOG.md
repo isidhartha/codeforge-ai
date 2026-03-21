@@ -110,3 +110,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-20] progress
 [2026-03-20] hotfix: null dereference
 [2026-03-20] fix: timeout too short
+[2026-03-21] added integration test
