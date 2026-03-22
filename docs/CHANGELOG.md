@@ -114,3 +114,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-21] file save conflict detection
 [2026-03-21] graceful shutdown
 [2026-03-22] fix: null check was missing
+[2026-03-22] removed unused dependencies
