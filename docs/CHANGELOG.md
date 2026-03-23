@@ -122,3 +122,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-23] updated env example file
 [2026-03-23] added troubleshooting section
 [2026-03-23] semantic search accuracy
+[2026-03-23] docs: update readme
