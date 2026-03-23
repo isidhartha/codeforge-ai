@@ -118,3 +118,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-22] added edge case tests
 [2026-03-22] multi-cursor fix
 [2026-03-23] sync with main
+[2026-03-23] documentation cleanup
