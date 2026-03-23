@@ -120,3 +120,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-23] sync with main
 [2026-03-23] documentation cleanup
 [2026-03-23] updated env example file
+[2026-03-23] added troubleshooting section
