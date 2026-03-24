@@ -127,3 +127,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-24] cleanup
 [2026-03-24] better type handling
 [2026-03-24] bump version
+[2026-03-24] fixed the broken test
