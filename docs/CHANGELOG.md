@@ -130,3 +130,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-24] fixed the broken test
 [2026-03-25] request validation
 [2026-03-25] docs: docker setup clarification
+[2026-03-25] mocked external dependencies
