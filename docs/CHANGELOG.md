@@ -136,3 +136,4 @@ Running log of changes. Most recent at the bottom.
 [2026-03-27] readme improvements
 [2026-03-29] guard clause cleanup
 [2026-03-29] code review fixes
+[2026-03-29] code generation prompt update
