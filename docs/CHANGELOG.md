@@ -295,3 +295,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-08] cleanup and formatting
 [2026-05-08] syntax highlighting extension
 [2026-05-08] fixed edge case in prod
+[2026-05-08] packages updated
