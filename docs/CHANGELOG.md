@@ -164,3 +164,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-02] fixed timeout handling
 [2026-04-03] code search index update
 [2026-04-03] cors fix
+[2026-04-03] renamed for clarity
