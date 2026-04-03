@@ -166,3 +166,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-03] cors fix
 [2026-04-03] renamed for clarity
 [2026-04-03] updated readme
+[2026-04-03] code-server proxy fix
