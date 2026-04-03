@@ -162,3 +162,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-01] fixed race condition in handler
 [2026-04-02] perf: avoid redundant computation
 [2026-04-02] fixed timeout handling
+[2026-04-03] code search index update
