@@ -173,3 +173,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-05] fix: response shape mismatch
 [2026-04-05] back to simpler approach
 [2026-04-05] improved test reliability
+[2026-04-05] small improvement
