@@ -177,3 +177,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-06] merge fixes
 [2026-04-06] optimized hot path
 [2026-04-06] address review feedback
+[2026-04-06] fix: edge case with empty input
