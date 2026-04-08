@@ -303,3 +303,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-09] fixed error propagation
 [2026-05-10] fixed that null crash
 [2026-05-10] minor tweaks
+[2026-05-10] cache invalidation fix
