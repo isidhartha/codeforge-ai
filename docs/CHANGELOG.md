@@ -305,3 +305,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-10] minor tweaks
 [2026-05-10] cache invalidation fix
 [2026-05-10] fix: off by one
+[2026-05-10] trying a different approach
