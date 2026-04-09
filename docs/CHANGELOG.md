@@ -307,3 +307,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-10] fix: off by one
 [2026-05-10] trying a different approach
 [2026-05-10] better separation of concerns
+[2026-05-10] test: more edge cases
