@@ -186,3 +186,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-07] almost there
 [2026-04-07] rough draft
 [2026-04-10] stricter validation
+[2026-04-10] minor refactor
