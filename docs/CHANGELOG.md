@@ -190,3 +190,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-10] updated changelog
 [2026-04-10] editor scroll synchronization
 [2026-04-10] removed debug prints
+[2026-04-10] post merge cleanup
