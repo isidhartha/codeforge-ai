@@ -193,3 +193,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-10] post merge cleanup
 [2026-04-10] session handling
 [2026-04-11] workspace settings
+[2026-04-11] test: improve mock setup
