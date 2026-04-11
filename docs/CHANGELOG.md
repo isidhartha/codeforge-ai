@@ -194,3 +194,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-10] session handling
 [2026-04-11] workspace settings
 [2026-04-11] test: improve mock setup
+[2026-04-11] tests passing now
