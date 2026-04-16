@@ -216,3 +216,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-16] search ranking tweak
 [2026-04-16] chore: cleanup old scripts
 [2026-04-16] tweaks
+[2026-04-16] alternative approach
