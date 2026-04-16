@@ -213,3 +213,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-15] reduce nesting
 [2026-04-15] editor theme persistence
 [2026-04-16] linting fixes
+[2026-04-16] search ranking tweak
