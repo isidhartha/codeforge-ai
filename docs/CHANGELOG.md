@@ -221,3 +221,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-17] lsp integration
 [2026-04-17] improved api documentation
 [2026-04-18] fix: connection not closing properly
+[2026-04-18] cleaned up imports
