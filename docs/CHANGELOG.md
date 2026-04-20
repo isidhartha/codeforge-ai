@@ -232,3 +232,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-20] chore: remove dead code
 [2026-04-20] fixed config override bug
 [2026-04-20] fixed wrong import path
+[2026-04-20] fixed pagination edge case
