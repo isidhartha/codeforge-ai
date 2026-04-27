@@ -253,3 +253,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-25] removed dead code
 [2026-04-25] chore: update license year
 [2026-04-27] docs: update changelog
+[2026-04-27] moved to config
