@@ -321,3 +321,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-15] docs: fix typo in readme
 [2026-05-15] polish
 [2026-05-15] chore: remove debug logs
+[2026-05-15] header cleanup
