@@ -259,3 +259,4 @@ Running log of changes. Most recent at the bottom.
 [2026-04-29] more test coverage
 [2026-04-29] formatter config
 [2026-04-29] small fix
+[2026-04-29] output sanitization
