@@ -277,3 +277,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-05] cleaned up after merge
 [2026-05-05] squash commits
 [2026-05-05] nl to shell command accuracy
+[2026-05-05] docs: add missing param docs
