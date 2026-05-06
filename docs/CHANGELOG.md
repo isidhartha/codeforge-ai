@@ -282,3 +282,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-05] better memory usage
 [2026-05-06] signal handling
 [2026-05-06] faster startup
+[2026-05-06] split pane layout bug
