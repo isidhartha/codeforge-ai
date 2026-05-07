@@ -288,3 +288,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-07] docs: note about environment variables
 [2026-05-07] clearer contributing guide
 [2026-05-07] improve readability
+[2026-05-07] hotfix: bad default config
