@@ -285,3 +285,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-06] split pane layout bug
 [2026-05-06] added missing docs
 [2026-05-06] refactor: extract constants
+[2026-05-07] docs: note about environment variables
