@@ -290,3 +290,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-07] improve readability
 [2026-05-07] hotfix: bad default config
 [2026-05-07] early return pattern
+[2026-05-07] this should do it
