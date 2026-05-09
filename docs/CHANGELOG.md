@@ -299,3 +299,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-08] removed magic numbers
 [2026-05-09] perf: cache the result
 [2026-05-09] extension panel fix
+[2026-05-09] added some tests
