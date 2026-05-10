@@ -301,3 +301,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-09] extension panel fix
 [2026-05-09] added some tests
 [2026-05-09] fixed error propagation
+[2026-05-10] fixed that null crash
