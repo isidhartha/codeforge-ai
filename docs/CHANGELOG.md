@@ -313,3 +313,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-13] terminal websocket reconnect
 [2026-05-14] fix: incorrect default value
 [2026-05-14] fixed outdated instructions
+[2026-05-14] ai explanation prompt
