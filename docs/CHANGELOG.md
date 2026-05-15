@@ -317,3 +317,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-14] reorganized files
 [2026-05-14] first pass
 [2026-05-14] regression test added
+[2026-05-15] refactor: split into smaller functions
