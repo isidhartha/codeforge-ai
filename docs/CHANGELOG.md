@@ -328,3 +328,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-16] refactor: cleaner variable names
 [2026-05-16] connection pool sizing
 [2026-05-17] file watcher events
+[2026-05-17] cache ttl adjustment
