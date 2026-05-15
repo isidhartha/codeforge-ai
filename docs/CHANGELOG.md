@@ -325,3 +325,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-15] fix: race condition in handler
 [2026-05-16] docker build fix
 [2026-05-16] docs: api reference update
+[2026-05-16] refactor: cleaner variable names
