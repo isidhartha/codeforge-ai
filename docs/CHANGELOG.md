@@ -333,3 +333,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-18] test fixtures update
 [2026-05-18] got it working
 [2026-05-18] docs: clearer setup instructions
+[2026-05-18] finishing up
