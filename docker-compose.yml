@@ -1,0 +1,83 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: codeforge-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../Dockerfile
+    container_name: codeforge-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - WORKSPACE_DIR=${WORKSPACE_DIR:-/workspace}
+      - TERMINAL_ALLOWED_COMMANDS=${TERMINAL_ALLOWED_COMMANDS:-ls,pwd,cat,echo,python,node,npm,git,pip}
+      - AI_MODEL=${AI_MODEL:-gpt-4o}
+      - AI_STREAM=${AI_STREAM:-true}
+      - MAX_TOKENS=${MAX_TOKENS:-4096}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000,http://localhost:8080}
+    volumes:
+      - workspace_data:/workspace
+      - ./backend:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    image: node:20-alpine
+    container_name: codeforge-frontend
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  code-server:
+    image: codercom/code-server:latest
+    container_name: codeforge-code-server
+    ports:
+      - "8080:8080"
+    environment:
+      - PASSWORD=codeforge
+    volumes:
+      - workspace_data:/home/coder/workspace
+      - code_server_config:/home/coder/.config
+    user: "1000:1000"
+    restart: unless-stopped
+    command: ["--auth", "password", "--bind-addr", "0.0.0.0:8080", "/home/coder/workspace"]
+
+volumes:
+  redis_data:
+  workspace_data:
+  code_server_config:
