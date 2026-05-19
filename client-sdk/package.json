@@ -1,0 +1,13 @@
+{
+  "name": "@isidhartha/codeforge",
+  "version": "1.0.0",
+  "description": "Node.js client for CodeForge AI — generate code, explain functions, debug errors, and run terminal commands programmatically",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {"type": "git", "url": "https://github.com/isidhartha/codeforge-ai.git"},
+  "homepage": "https://github.com/isidhartha/codeforge-ai#readme",
+  "keywords": ["ide", "code-generation", "ai", "debugging", "monaco", "codeforge"],
+  "author": "Sidhartha <ramsiddhartha71154@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {"registry": "https://npm.pkg.github.com", "access": "public"}
+}
