@@ -1,9 +1,12 @@
 """Spec-to-code generator — create entire files or functions from plain English."""
+import os
 from typing import AsyncIterator
-from openai import AsyncOpenAI
+from backend.llm_service import complete as llm_complete
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import GenerateRequest
+
+_LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
 
 logger = get_logger(__name__)
 settings = get_settings()
@@ -22,11 +25,19 @@ Rules:
 
 async def stream_generated_code(req: GenerateRequest) -> AsyncIterator[str]:
     """Stream generated code from a natural language specification."""
-    client = AsyncOpenAI(api_key=settings.openai_api_key)
     prompt = _build_generate_prompt(req)
-
     logger.info("generating_code", language=req.language, spec_len=len(req.spec))
 
+    if _LLM_PROVIDER == "ollama":
+        import asyncio
+        text = await asyncio.get_event_loop().run_in_executor(
+            None, lambda: llm_complete(prompt, system=GENERATE_SYSTEM)
+        )
+        yield text
+        return
+
+    from openai import AsyncOpenAI
+    client = AsyncOpenAI(api_key=settings.openai_api_key)
     stream = await client.chat.completions.create(
         model=settings.ai_model,
         messages=[
