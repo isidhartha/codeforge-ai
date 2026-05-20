@@ -2,6 +2,17 @@
 
 [![Discussions](https://img.shields.io/github/discussions/isidhartha/codeforge-ai)](https://github.com/isidhartha/codeforge-ai/discussions)
 
+## Demo
+
+![Demo](docs/images/demo.gif)
+
+### Screenshots
+
+| Desktop | Feature View | Mobile |
+|---------|-------------|--------|
+| ![Desktop](docs/images/screenshot_desktop.png) | ![Feature](docs/images/screenshot_feature.png) | ![Mobile](docs/images/screenshot_mobile.png) |
+
+
 The premise is simple: your IDE should be running everywhere, and it should understand what you're building.
 
 CodeForge AI is a browser-based coding environment with an AI assistant built into the core — not bolted on as a chat sidebar. You get a Monaco editor (the same editor that powers VS Code), a real terminal, a file explorer, and an AI that has context about your entire project and can act on it. Run it once in Docker and you've got a full IDE accessible from any browser on your network.
