@@ -234,107 +234,107 @@ Running log of changes. Most recent at the bottom.
 [2026-04-20] fixed wrong import path
 [2026-04-20] fixed pagination edge case
 [2026-04-20] graceful degradation
-[2026-04-22] health check endpoint
-[2026-04-22] it works now
-[2026-04-22] cleaned up error handling
-[2026-04-22] version bump
-[2026-04-23] fix: encoding issue in response
-[2026-04-23] removed unused variables
-[2026-04-23] chore: standardize naming
-[2026-04-24] fix: broken unit test
-[2026-04-24] updated setup docs
-[2026-04-24] auth token refresh
-[2026-04-24] consistent naming
-[2026-04-25] consolidate duplicate logic
-[2026-04-25] readme cleanup
-[2026-04-25] fix: environment variable parsing
-[2026-04-25] test: fix flaky test
-[2026-04-25] quick improvement
-[2026-04-25] removed dead code
-[2026-04-25] chore: update license year
-[2026-04-27] docs: update changelog
-[2026-04-27] moved to config
-[2026-04-27] fixed typo in comment
-[2026-04-29] docs: installation steps update
-[2026-04-29] more test coverage
-[2026-04-29] formatter config
-[2026-04-29] small fix
-[2026-04-29] output sanitization
-[2026-04-29] fix: log level override not working
-[2026-05-01] self review fixes
-[2026-05-01] query optimization
-[2026-05-01] file tree refresh on save
-[2026-05-02] autocomplete debounce fix
-[2026-05-02] better getting started guide
-[2026-05-02] retry logic improved
-[2026-05-02] working on it
-[2026-05-03] monaco editor keybinding fix
-[2026-05-03] input bounds check
-[2026-05-03] chore: rename for clarity
-[2026-05-03] fix: wrong status code
-[2026-05-03] xterm resize handling
-[2026-05-05] fixed response format issue
-[2026-05-05] cleaned up after merge
-[2026-05-05] squash commits
-[2026-05-05] nl to shell command accuracy
-[2026-05-05] docs: add missing param docs
-[2026-05-05] chore: bump package versions
-[2026-05-05] better memory usage
-[2026-05-06] signal handling
-[2026-05-06] faster startup
-[2026-05-06] split pane layout bug
-[2026-05-06] added missing docs
-[2026-05-06] refactor: extract constants
-[2026-05-07] docs: note about environment variables
-[2026-05-07] clearer contributing guide
-[2026-05-07] improve readability
-[2026-05-07] hotfix: bad default config
-[2026-05-07] early return pattern
-[2026-05-07] this should do it
-[2026-05-07] formatting cleanup
-[2026-05-08] cleanup and formatting
-[2026-05-08] syntax highlighting extension
-[2026-05-08] fixed edge case in prod
-[2026-05-08] packages updated
-[2026-05-08] removed magic numbers
-[2026-05-09] perf: cache the result
-[2026-05-09] extension panel fix
-[2026-05-09] added some tests
-[2026-05-09] fixed error propagation
-[2026-05-10] fixed that null crash
-[2026-05-10] minor tweaks
-[2026-05-10] cache invalidation fix
-[2026-05-10] fix: off by one
-[2026-05-10] trying a different approach
-[2026-05-10] better separation of concerns
-[2026-05-10] test: more edge cases
-[2026-05-13] pagination cursor fix
-[2026-05-13] refactor: simplify logic
-[2026-05-13] terminal websocket reconnect
-[2026-05-14] fix: incorrect default value
-[2026-05-14] fixed outdated instructions
-[2026-05-14] ai explanation prompt
-[2026-05-14] reorganized files
-[2026-05-14] first pass
-[2026-05-14] regression test added
-[2026-05-15] refactor: split into smaller functions
-[2026-05-15] docs: fix typo in readme
-[2026-05-15] polish
-[2026-05-15] chore: remove debug logs
-[2026-05-15] header cleanup
-[2026-05-15] fix: race condition in handler
-[2026-05-16] docker build fix
-[2026-05-16] docs: api reference update
-[2026-05-16] refactor: cleaner variable names
-[2026-05-16] connection pool sizing
-[2026-05-17] file watcher events
-[2026-05-17] cache ttl adjustment
-[2026-05-17] null safety improvement
-[2026-05-18] test fixtures update
-[2026-05-18] got it working
-[2026-05-18] docs: clearer setup instructions
-[2026-05-18] finishing up
-[2026-05-18] fixed missing null checks
-[2026-05-18] all tests green
-[2026-05-19] chore: update dependencies
-[2026-05-19] resource limits
+[2026-04-22] health check api
+[2026-04-22] that did it
+[2026-04-22] error handling cleanup
+[2026-04-22] bump version number
+[2026-04-23] fix: response encoding
+[2026-04-23] remove dead vars
+[2026-04-23] consistent naming throughout
+[2026-04-24] fix: test regression
+[2026-04-24] tidy
+[2026-04-24] handle token expiry
+[2026-04-24] uniform naming
+[2026-04-25] catch-up
+[2026-04-25] tidy up readme
+[2026-04-25] fix: env parsing
+[2026-04-25] stabilize flaky test
+[2026-04-25] small win
+[2026-04-25] remove dead code
+[2026-04-25] license header update
+[2026-04-27] update change log
+[2026-04-27] make configurable
+[2026-04-27] catch-up
+[2026-04-29] installation guide update
+[2026-04-29] misc tweaks
+[2026-04-29] cleanup
+[2026-04-29] tiny fix
+[2026-04-29] clean up output
+[2026-04-29] fix: logging config
+[2026-05-01] forgot this
+[2026-05-01] query performance
+[2026-05-01] minor fix
+[2026-05-02] polish
+[2026-05-02] getting started update
+[2026-05-02] better retry strategy
+[2026-05-02] in progress, not done
+[2026-05-03] missed this
+[2026-05-03] validate input range
+[2026-05-03] better names everywhere
+[2026-05-03] fix: status code wrong
+[2026-05-03] follow-up
+[2026-05-05] another fix
+[2026-05-05] tidy post-merge
+[2026-05-05] combine prior commits
+[2026-05-05] follow-up
+[2026-05-05] fill in missing param docs
+[2026-05-05] dep version bumps
+[2026-05-05] memory optimization
+[2026-05-06] minor fix
+[2026-05-06] one more thing
+[2026-05-06] cleanup
+[2026-05-06] add missing documentation
+[2026-05-06] named constants
+[2026-05-07] env var docs
+[2026-05-07] improve contributor docs
+[2026-05-07] polish
+[2026-05-07] one more thing
+[2026-05-07] guard clauses
+[2026-05-07] worth a shot
+[2026-05-07] code style pass
+[2026-05-08] tidy after review
+[2026-05-08] quick pass
+[2026-05-08] minor fix
+[2026-05-08] update packages
+[2026-05-08] use named constants
+[2026-05-09] cache the computed value
+[2026-05-09] one more thing
+[2026-05-09] a few more tests
+[2026-05-09] housekeeping
+[2026-05-10] follow-up
+[2026-05-10] minor polish
+[2026-05-10] fix cache invalidation
+[2026-05-10] fix: index arithmetic
+[2026-05-10] new approach
+[2026-05-10] separate responsibilities
+[2026-05-10] add edge case tests
+[2026-05-13] fix pagination logic
+[2026-05-13] straighten out code
+[2026-05-13] catch-up
+[2026-05-14] fix: bad default
+[2026-05-14] misc
+[2026-05-14] misc tweaks
+[2026-05-14] file reorganization
+[2026-05-14] first attempt
+[2026-05-14] another fix
+[2026-05-15] decompose large function
+[2026-05-15] typo fix in docs
+[2026-05-15] small improvement
+[2026-05-15] remove leftover logs
+[2026-05-15] missed this
+[2026-05-15] fix: concurrent access
+[2026-05-16] fix docker build
+[2026-05-16] update api reference
+[2026-05-16] better variable names
+[2026-05-16] adjust pool size
+[2026-05-17] small improvement
+[2026-05-17] adjust cache ttl
+[2026-05-17] tidy
+[2026-05-18] tidy
+[2026-05-18] that finally worked
+[2026-05-18] clarify setup steps
+[2026-05-18] last bits
+[2026-05-18] small win
+[2026-05-18] test suite green after refactor
+[2026-05-19] bump minor deps
+[2026-05-19] quick pass
