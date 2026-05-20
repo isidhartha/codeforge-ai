@@ -4,12 +4,12 @@
 
 ## Demo
 
-![Demo](docs/images/demo.gif)
+![Demo Animation](docs/images/demo.gif)
 
 ### Screenshots
 
-| Desktop | Feature View | Mobile |
-|---------|-------------|--------|
+| Desktop Dashboard | Feature View | Mobile View |
+|------------------|--------------|--------------|
 | ![Desktop](docs/images/screenshot_desktop.png) | ![Feature](docs/images/screenshot_feature.png) | ![Mobile](docs/images/screenshot_mobile.png) |
 
 
@@ -125,7 +125,7 @@ WS   /ws/terminal             — Interactive terminal session
 ## Configuration
 
 | Variable | Default | What it does |
-|---|---|---|
+|------------------|--------------|--------------|
 | `OPENAI_API_KEY` | — | OpenAI for AI features |
 | `ANTHROPIC_API_KEY` | — | Anthropic alternative |
 | `AI_MODEL` | `gpt-4o` | Model to use |
