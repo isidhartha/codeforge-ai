@@ -338,3 +338,4 @@ Running log of changes. Most recent at the bottom.
 [2026-05-18] all tests green
 [2026-05-19] chore: update dependencies
 [2026-05-19] resource limits
+[2026-05-21] fix: exclude build directories from project index
