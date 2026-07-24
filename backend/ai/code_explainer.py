@@ -1,15 +1,10 @@
-﻿"""Explain code blocks using AI."""
-import os
+"""Explain code blocks using AI."""
 from typing import AsyncIterator
-from llm_service import complete as llm_complete
-from shared.config import get_settings
+from llm_service import stream_chat as llm_stream_chat
 from shared.logging import get_logger
 from shared.models import ExplainRequest
 
-_LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
-
 logger = get_logger(__name__)
-settings = get_settings()
 
 EXPLAIN_SYSTEM = """You are CodeForge AI, an expert code reviewer and teacher.
 Explain code clearly and concisely:
@@ -24,33 +19,13 @@ Use markdown with code blocks for any example code.
 async def stream_explanation(req: ExplainRequest) -> AsyncIterator[str]:
     """Stream a plain-English explanation of a code block."""
     prompt = _build_explain_prompt(req)
-    logger.info("explaining_code", language=req.language, code_len=len(req.code))
-
-    if _LLM_PROVIDER == "ollama":
-        import asyncio
-        text = await asyncio.get_event_loop().run_in_executor(
-            None, lambda: llm_complete(prompt, system=EXPLAIN_SYSTEM)
-        )
-        yield text
-        return
-
-    from openai import AsyncOpenAI
-    client = AsyncOpenAI(api_key=settings.openai_api_key)
-    stream = await client.chat.completions.create(
-        model=settings.ai_model,
-        messages=[
-            {"role": "system", "content": EXPLAIN_SYSTEM},
-            {"role": "user", "content": prompt},
-        ],
-        max_tokens=settings.max_tokens,
-        stream=True,
-        temperature=0.3,
-    )
-
-    async for chunk in stream:
-        delta = chunk.choices[0].delta.content
-        if delta:
-            yield delta
+    logger.info("explaining_code")
+    messages = [
+        {"role": "system", "content": EXPLAIN_SYSTEM},
+        {"role": "user", "content": prompt},
+    ]
+    async for chunk in llm_stream_chat(messages):
+        yield chunk
 
 
 async def explain_once(req: ExplainRequest) -> str:
