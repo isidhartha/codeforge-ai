@@ -41,55 +41,68 @@ CodeForge AI is a browser-based coding environment with an AI assistant built in
 
 ## How to run it
 
-**Prerequisites**: Docker and Docker Compose. An OpenAI or Anthropic API key.
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- Git
+- Redis (`redis-server`)
+- Ollama (optional, for running without any API key — https://ollama.com)
 
-**1. Clone and configure**
+### Setup
 
 ```bash
-git clone https://github.com/isidhartha/codeforge-ai.git
+# 1. Clone and enter the project
+git clone https://github.com/isidhartha/codeforge-ai
 cd codeforge-ai
+
+# 2. Create virtual environment
+# Windows:
+python -m venv venv
+venv\Scripts\activate
+# Mac/Linux:
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. Install Python dependencies
+pip install -r backend/requirements.txt
+
+# 4. Configure environment
+# Windows:
+copy .env.example .env
+# Mac/Linux:
 cp .env.example .env
+# Open .env and fill in at least one AI provider key
+# OR set AI_PROVIDER=ollama to run without any API key
+
+# 5. Create workspace directory
+mkdir workspace
+
+# 6. Start services
+# Redis (in a terminal):
+redis-server
+
+# 7. Run the backend
+cd backend
+uvicorn main:app --reload --port 8006
+
+# 8. Run the frontend (in a new terminal, from project root)
+cd frontend
+npm install
+npm run dev -- --port 3006
 ```
-
-Open `.env` and add your API key:
-
-```
-OPENAI_API_KEY=sk-your-key-here
-# or
-ANTHROPIC_API_KEY=sk-ant-your-key-here
-```
-
-**2. Start everything**
-
-```bash
-docker-compose up --build
-```
-
-**3. Open the IDE**
 
 | URL | What's there |
 |---|---|
-| http://localhost:3000 | CodeForge AI — the custom React + Monaco IDE |
-| http://localhost:8080 | code-server — full VS Code in the browser |
-| http://localhost:8000/docs | Backend API docs (Swagger UI) |
+| http://localhost:3006 | CodeForge AI — the custom React + Monaco IDE |
+| http://localhost:8006/docs | Backend API docs (Swagger UI) |
 
 ---
 
 ## Without Docker
 
-```bash
-# Backend
-cd backend
-python -m venv .venv
-source .venv/bin/activate    # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+See the **How to run it** section above — all instructions are native (no Docker required).
 
-# Frontend (separate terminal)
-cd frontend
-npm install
-npm run dev                  # http://localhost:5173
-```
+Ports: backend → http://localhost:8006 | frontend → http://localhost:3006
 
 ---
 

@@ -1,7 +1,7 @@
-"""Spec-to-code generator — create entire files or functions from plain English."""
+﻿"""Spec-to-code generator â€” create entire files or functions from plain English."""
 import os
 from typing import AsyncIterator
-from backend.llm_service import complete as llm_complete
+from llm_service import complete as llm_complete
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import GenerateRequest

@@ -1,7 +1,7 @@
-"""AI code completion and streaming chat assistant."""
+﻿"""AI code completion and streaming chat assistant."""
 import os
 from typing import AsyncIterator, Optional
-from backend.llm_service import complete as llm_complete, chat as llm_chat
+from llm_service import complete as llm_complete, chat as llm_chat
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import ChatMessage, CompletionRequest
@@ -15,7 +15,7 @@ COMPLETION_SYSTEM = """You are CodeForge AI, an expert coding assistant embedded
 When completing code:
 - Complete only the missing part, not what already exists
 - Match the existing style, indentation, and language
-- Be concise — provide a single best completion
+- Be concise â€” provide a single best completion
 - Do not add markdown fences or explanations, just code
 """
 

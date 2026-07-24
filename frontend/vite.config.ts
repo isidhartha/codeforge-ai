@@ -16,14 +16,14 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 3000,
+    port: 3006,
     proxy: {
       "/api": {
-        target: "http://localhost:8000",
+        target: "http://localhost:8006",
         changeOrigin: true,
       },
       "/ws": {
-        target: "ws://localhost:8000",
+        target: "ws://localhost:8006",
         ws: true,
         changeOrigin: true,
       },

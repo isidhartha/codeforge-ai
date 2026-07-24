@@ -17,14 +17,14 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379"
 
     # IDE
-    workspace_dir: str = "/workspace"
+    workspace_dir: str = "./workspace"
     terminal_allowed_commands: str = "ls,pwd,cat,echo,python,node,npm,git,pip"
 
     # Server
     backend_host: str = "0.0.0.0"
-    backend_port: int = 8000
+    backend_port: int = 8006
     log_level: str = "INFO"
-    cors_origins: str = "http://localhost:3000,http://localhost:8080"
+    cors_origins: str = "http://localhost:3006,http://localhost:8080"
 
     # Security
     secret_key: str = "change-me-in-production"

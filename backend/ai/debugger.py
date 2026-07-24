@@ -1,7 +1,7 @@
-"""AI debugging assistant — explain errors and suggest fixes."""
+﻿"""AI debugging assistant â€” explain errors and suggest fixes."""
 import os
 from typing import AsyncIterator
-from backend.llm_service import complete as llm_complete
+from llm_service import complete as llm_complete
 from shared.config import get_settings
 from shared.logging import get_logger
 from shared.models import DebugRequest
