@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+﻿import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Terminal as XTerm } from "xterm";
 import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
@@ -6,8 +6,8 @@ import { Sparkles, X, Maximize2, Minimize2, RotateCcw } from "lucide-react";
 import clsx from "clsx";
 import "xterm/css/xterm.css";
 
-const WS_BASE = import.meta.env.VITE_WS_URL ?? "ws://localhost:8000";
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const WS_BASE = `${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.host}`;
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 interface TerminalProps {
   onClose?: () => void;

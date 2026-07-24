@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+﻿import React, { useState, useCallback } from "react";
 import { Zap, Copy, Check, ChevronDown, ChevronUp } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -17,7 +17,7 @@ interface Suggestion {
   confidence: number;
 }
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 export default function Autocomplete({ code, language, cursorPosition, onInsert }: AutocompleteProps) {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);

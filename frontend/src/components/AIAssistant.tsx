@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect, useContext } from "react";
+﻿import React, { useState, useRef, useCallback, useEffect, useContext } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -14,7 +14,7 @@ interface Message {
   isStreaming?: boolean;
 }
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 type AIAction = "chat" | "explain" | "debug" | "generate";
 

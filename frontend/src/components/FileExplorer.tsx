@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+﻿import React, { useEffect, useState, useCallback, useContext } from "react";
 import { ChevronRight, ChevronDown, File, Folder, FolderOpen, RefreshCw } from "lucide-react";
 import { AppContext, detectLanguage } from "../App";
 import clsx from "clsx";
@@ -13,7 +13,7 @@ interface FileNode {
   expanded?: boolean;
 }
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 async function fetchFiles(dirPath: string = ""): Promise<FileNode[]> {
   const url = `${API_BASE}/api/v1/files${dirPath ? `?path=${encodeURIComponent(dirPath)}` : ""}`;
